@@ -26,11 +26,13 @@
 
 		<!-- type="text/template" ==> What follows represent snippets of html that our javascript can use to display things in our app. For example, item-template is going to be our template for displaying a todo item; if we want to make changes to the way our todo items render, this is where we'd do it. -->
 		<!-- A chunk of HTML which is a template for something that may repeat or be some kind of a dynamic view. -->
+
+		<!-- This is the way the template conditionally adds things: the <%= ... %> syntax is interpretted logically by Backbone. If completed is true, add the checked attribute; otherwise add no attribute. -->
+		<!-- QUIZ 1: Added "done" text if item is completed -->
 		<script type="text/template" id="item-template">
 			<div class="view">
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
-				/*QUIZ 1: Added "done" text if item is completed*/
-				<label><%- title %><%- completed ? '--done' : '' %></label>
+				<label><%- title %><%= completed ? '--done' : '' %></label>
 				<button class="destroy"></button>
 			</div>
 			<input class="edit" value="<%- title %>">
