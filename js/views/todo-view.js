@@ -23,6 +23,8 @@ var app = app || {};
 		// So our solution is ==> "When you click on a class of edit-btn, run the function called edit."
 		events: {
 			'click .toggle': 'toggleCompleted',
+			//QUIZ 3 : priority button
+			'click .priority-btn': 'togglePriority',
 			'dblclick label': 'edit',
 			// QUIZ 2 - Go into edit mode when edit-btn is clicked
 			'click .edit-btn': 'edit',
@@ -55,8 +57,11 @@ var app = app || {};
 				return;
 			}
 
+			// Q3 Detective Work: Here, we are taking this.$el (the actual element behind this; the li) and setting the HTML to the rendered template...
 			this.$el.html(this.template(this.model.toJSON()));
+			// ...We are also telling the element to toggle the CLASS of completed depending on this.model.get('completed').  Toggle the Class? That's what we want to do!
 			this.$el.toggleClass('completed', this.model.get('completed'));
+			this.$el.toggleClass('priority', this.model.get('prioritized'));
 			this.toggleVisible();
 			this.$input = this.$('.edit');
 			return this;
@@ -75,6 +80,11 @@ var app = app || {};
 		// Toggle the `"completed"` state of the model.
 		toggleCompleted: function () {
 			this.model.toggle();
+		},
+
+		// Q3
+		togglePriority: function () {
+			this.model.togglePriority();
 		},
 
 		// Switch this view into `"editing"` mode, displaying the input field.
