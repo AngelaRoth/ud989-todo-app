@@ -1,6 +1,10 @@
 /*global Backbone */
+
+// var app equals app, or an empty object. If app exists, nothing is done; if app does not yet exist, it gets made to be an object. When the first js file is run, the app object will not yet exist.
 var app = app || {};
 
+// Immediately invoked function expression.
+// Any variables defined inside this function don't pollute the global scope; don't accidentally overwrite any variables that already exist.
 (function () {
 	'use strict';
 

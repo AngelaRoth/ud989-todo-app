@@ -1,3 +1,5 @@
+// View for the ENTIRE APPLICATION
+
 /*global Backbone, jQuery, _, ENTER_KEY */
 var app = app || {};
 

@@ -1,3 +1,5 @@
+// View for EACH TODO ITEM
+
 /*global Backbone, jQuery, _, ENTER_KEY, ESC_KEY */
 var app = app || {};
 
