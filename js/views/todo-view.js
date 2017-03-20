@@ -18,9 +18,14 @@ var app = app || {};
 		template: _.template($('#item-template').html()),
 
 		// The DOM events specific to an item.
+		// NOTE: The events object literal that binds these things to these functions. SEE THIS in the DOCUMENTATION, in the VIEW section under extend, there you find the events property!!!
+		// HERE, the EVENT is click or dblclick; the CSS SELECTOR is .toggle or label; the ACTUAL FUNCTIONALITY is 'toggleCompleted' or 'edit' or 'clear' (scroll down to see the edit function)
+		// So our solution is ==> "When you click on a class of edit-btn, run the function called edit."
 		events: {
 			'click .toggle': 'toggleCompleted',
 			'dblclick label': 'edit',
+			// QUIZ 2 - Go into edit mode when edit-btn is clicked
+			'click .edit-btn': 'edit',
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',

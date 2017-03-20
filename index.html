@@ -29,10 +29,12 @@
 
 		<!-- This is the way the template conditionally adds things: the <%= ... %> syntax is interpretted logically by Backbone. If completed is true, add the checked attribute; otherwise add no attribute. -->
 		<!-- QUIZ 1: Added "done" text if item is completed -->
+		<!-- Quiz 2: Added edit-btn button -->
 		<script type="text/template" id="item-template">
 			<div class="view">
 				<input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
 				<label><%- title %><%= completed ? '--done' : '' %></label>
+				<button class="edit-btn"></button>
 				<button class="destroy"></button>
 			</div>
 			<input class="edit" value="<%- title %>">
